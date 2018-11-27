@@ -6,4 +6,5 @@ RUN echo "colorscheme desert" > /root/.vimrc
 RUN echo "auto_accept: True" > /etc/salt/master
 RUN echo "log_level_logfile: trace" >> /etc/salt/master
 RUN systemctl enable salt-master
+RUN yum install -y graphviz && pip2 install pympler graphviz && wget -o /usr/lib/python2.7/site-packages/salt https://raw.githubusercontent.com/dhiltonp/memtools/master/memgraph.py
 CMD ["/usr/sbin/init"]
